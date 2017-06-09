@@ -1,0 +1,12 @@
+{
+    "name": "img-share",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "cloudinary": "^1.4.3",
+        "express": "^4.15.3",
+        "mongoose": "^4.10.5"
+    }
+}

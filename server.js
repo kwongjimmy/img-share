@@ -1,7 +1,10 @@
+//initialize dependencies
 var cloudinary = require('cloudinary');
+var path = require('path');
 var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 
 // Set necessary MongoDB / Cloudinary configs
 var configs = require('./config/config.js');
@@ -13,8 +16,25 @@ cloudinary.config({
     api_secret: "MHd3rhFlXwp4cOlgh3mTlHe2G98"
 });
 
+// View Engine
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+
+// Set Static folder
+app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, 'client', 'src')));
+app.use(express.static(path.join(__dirname, 'client', 'src', 'app')));
+
+// Body Parser for POST 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
+//app.use('/', index);
+
+
 // Set and start port
-var PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, function() {
     
     console.log("Server running on localhost:"+ PORT);

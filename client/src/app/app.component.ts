@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent  { 
 
+    fileChange(event) {
+        let fileList: FileList = event.target.files;
+        
+    }
 }

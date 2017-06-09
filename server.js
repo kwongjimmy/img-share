@@ -1,10 +1,10 @@
 //initialize dependencies
-var cloudinary = require('cloudinary');
 var path = require('path');
 var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var cloudinary = require('cloudinary'); 
 
 // Set necessary MongoDB / Cloudinary configs
 var configs = require('./config/config.js');
@@ -45,10 +45,10 @@ mongoose.connect(process.env.MONGO_CONNECTION);
 
 
 // test upload photo
-/*var photo = require('./config/photo.js');
+var photo = require('./config/photo.js');
 cloudinary.v2.uploader.upload("./meeko.jpg", function(error, result) {
      var pic = new photo();
      pic.url = result.secure_url;
      pic.name = "meeko";
      pic.save();
-});*/
+});

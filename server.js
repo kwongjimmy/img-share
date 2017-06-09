@@ -45,10 +45,10 @@ mongoose.connect(process.env.MONGO_CONNECTION);
 
 
 // test upload photo
-var photo = require('./config/photo.js');
+/*var photo = require('./config/photo.js');
 cloudinary.v2.uploader.upload("./meeko.jpg", function(error, result) {
      var pic = new photo();
      pic.url = result.secure_url;
      pic.name = "meeko";
      pic.save();
-});
+});*/
